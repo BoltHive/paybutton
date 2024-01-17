@@ -1,0 +1,7 @@
+{
+    "name": "PayButton",
+    "short_description": "Make Pay Buttons that generate invoices",
+    "tile": "/paybutton/static/bitcoin-extension.png",
+    "contributors": ["bitkarrot"],
+    "min_lnbits_version": "0.11.0"
+}

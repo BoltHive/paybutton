@@ -1,0 +1,9 @@
+{
+    "repos": [
+        {
+            "id": "paybutton",
+            "organisation": "bitkarrot",
+            "repository": "paybutton"
+        }
+    ]
+}
