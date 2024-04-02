@@ -1,12 +1,8 @@
 # PayButton Extension - <small>[LNbits](https://github.com/lnbits/lnbits) extension</small>
 
-<small>For more about LNBits extension check [this tutorial](https://github.com/lnbits/lnbits/wiki/LNbits-Extensions)</small>
 
-<h2>*tagline*</h2>
+<h2>Embed a LNBits Pay button on any website</h2>
 This is an paybutton extension to help you organise and build you own.
-
-Try to include an image
-<img src="https://i.imgur.com/9i4xcQB.png">
 
 <h2>If your extension has API endpoints, include useful ones here</h2>
 
