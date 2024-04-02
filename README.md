@@ -1,4 +1,4 @@
-# PayButton Extension - <small>[LNbits](https://github.com/lnbits/lnbits) extension</small>
+# PayButton - <small>[LNbits](https://github.com/lnbits/lnbits) extension</small>
 
 
 <h2>Embed a LNBits Pay button on any website</h2>
