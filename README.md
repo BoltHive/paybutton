@@ -1,6 +1,5 @@
 # PayButton - <small>[LNbits](https://github.com/lnbits/lnbits) extension</small>
 
-
 <h2>Embed a LNBits Pay button on any website</h2>
 This is an paybutton extension to help you organise and build you own.
 

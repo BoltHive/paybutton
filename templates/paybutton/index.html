@@ -148,7 +148,8 @@
                   <i>
                     <strong>TIP:</strong> Look through
                     <code class="bg-grey-3 text-black">/template</code> files in
-                    other extensions for paybuttons of Quasar elements being used. </i
+                    other extensions for paybuttons of Quasar elements being
+                    used. </i
                   ><br /><br />
 
                   <p>
@@ -199,7 +200,9 @@
                     components.
                   </p>
 
-                  <p>Typical paybutton of Vue components in a frontend script:</p>
+                  <p>
+                    Typical paybutton of Vue components in a frontend script:
+                  </p>
                   <img
                     src="./static/script-paybutton.png"
                     style="max-width: 800px"
@@ -368,84 +371,84 @@
 {% endblock %} {% block scripts %} {{ window_vars(user) }}
 
 <script>
-  var someMapObject = obj => {
-    obj._data = _.clone(obj)
+  var someMapObject = (obj) => {
+    obj._data = _.clone(obj);
     obj.date = Quasar.utils.date.formatDate(
       new Date(obj.time * 1000),
-      'YYYY-MM-DD HH:mm'
-    )
+      "YYYY-MM-DD HH:mm",
+    );
     // here you can do something with the mapped data
-    return obj
-  }
+    return obj;
+  };
   new Vue({
-    el: '#vue',
+    el: "#vue",
     mixins: [windowMixin],
     data: function () {
       return {
         ///// Declare models/variables /////
         protocol: window.location.protocol,
-        location: '//' + window.location.hostname,
+        location: "//" + window.location.hostname,
         thingDialog: {
           show: false,
-          data: {}
+          data: {},
         },
         someBool: true,
         splitterModel: 20,
         paybuttonData: [],
-        tab: 'frameworks',
-        framworktab: 'fastapi',
-        usefultab: 'magicalg'
-      }
+        tab: "frameworks",
+        framworktab: "fastapi",
+        usefultab: "magicalg",
+      };
     },
     ///// Where functions live /////
     methods: {
       paybuttonFunction: function (data) {
-        var theData = data
+        var theData = data;
         LNbits.api
           .request(
-            'GET', // Type of request
-            '/paybutton/api/v1/test/' + theData, // URL of the endpoint
-            this.g.user.wallets[0].inkey // Often endpoints require a key
+            "GET", // Type of request
+            "/paybutton/api/v1/test/" + theData, // URL of the endpoint
+            this.g.user.wallets[0].inkey, // Often endpoints require a key
           )
-          .then(response => {
-            this.paybuttonData = response.data.map(someMapObject) // Often whats returned is mapped onto some model
+          .then((response) => {
+            this.paybuttonData = response.data.map(someMapObject); // Often whats returned is mapped onto some model
           })
-          .catch(error => {
-            LNbits.utils.notifyApiError(error) // Error will be passed to the frontend
-          })
+          .catch((error) => {
+            LNbits.utils.notifyApiError(error); // Error will be passed to the frontend
+          });
       },
       initWs: async function () {
-        if (location.protocol !== 'http:') {
+        if (location.protocol !== "http:") {
           localUrl =
-            'wss://' +
+            "wss://" +
             document.domain +
-            ':' +
+            ":" +
             location.port +
-            '/api/v1/ws/32872r23g29'
+            "/api/v1/ws/32872r23g29";
         } else {
           localUrl =
-            'ws://' +
+            "ws://" +
             document.domain +
-            ':' +
+            ":" +
             location.port +
-            '/api/v1/ws/32872r23g29'
+            "/api/v1/ws/32872r23g29";
         }
-        this.ws = new WebSocket(localUrl)
-        this.ws.addEventListener('message', async ({data}) => {
-          const res = data.toString()
-          document.getElementById('text-to-change').innerHTML = res
-        })
+        this.ws = new WebSocket(localUrl);
+        this.ws.addEventListener("message", async ({ data }) => {
+          const res = data.toString();
+          document.getElementById("text-to-change").innerHTML = res;
+        });
       },
       sendThingDialog() {
-        console.log(this.thingDialog)
-      }
+        console.log(this.thingDialog);
+      },
     },
     ///// To run on startup /////
     created: function () {
-      self = this // Often used to run a real object, rather than the event (all a bit confusing really)
-      self.paybuttonFunction('lorum')
-      self.initWs()
-    }
-  })
+      self = this; // Often used to run a real object, rather than the event (all a bit confusing really)
+      self.paybuttonFunction("lorum");
+      self.initWs();
+    },
+  });
 </script>
 {% endblock %}
