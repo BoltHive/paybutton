@@ -1,5 +1,6 @@
-# from pydantic import BaseModel
+from pydantic import BaseModel
 
-# class paybutton(BaseModel):
-#    id: str
-#    wallet: str
+
+class Paybutton(BaseModel):
+    id: str
+    wallet: str
